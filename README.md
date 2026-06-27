@@ -20,7 +20,7 @@ StandardError=append:/home/ec2-user/app/app.log
 
 [Install]
 WantedBy=multi-user.target
-ExecStart → path to your JAR file.
+
 
 ####################################################
 User → the Linux user running the app (often ec2-user).
