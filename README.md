@@ -1,14 +1,12 @@
 # JavaHelloWorldJar
 
-🛠 Create a systemd Service File
-Create service file
+****🛠 Create a systemd Service File
+###################Create service file ###################################
+****
 
-bash
-sudo nano /etc/systemd/system/hello-world.service
-Add configuration  
-Paste this content (adjust paths and JAR name as needed):
+bash: # sudo nano /etc/systemd/system/<hello-world.service>
+**Add configuration  : Paste this content (adjust paths and JAR name as needed):**
 
-ini
 [Unit]
 Description=Hello World Java App
 After=network.target
@@ -25,47 +23,47 @@ StandardError=append:/home/ec2-user/app/app.log
 WantedBy=multi-user.target
 ExecStart → path to your JAR file.
 
+####################################################
 User → the Linux user running the app (often ec2-user).
 
 Logs will be written to /home/ec2-user/app/app.log.
 
-🔑 Enable and Control the Service
-Reload systemd
 
-bash
-sudo systemctl daemon-reload
-Enable service at boot
+###################################
+🔑 **Enable and Control the Service**:
+###################################
 
-bash
-sudo systemctl enable hello-world
-Start service
+1: #### Reload systemd:
+bash: sudo systemctl daemon-reload
 
-bash
-sudo systemctl start hello-world
-Check status
+2: #### Enable service at boot
+bash : sudo systemctl enable hello-world
 
-bash
-sudo systemctl status hello-world
-Stop service
+3: #### Start service
+bash: sudo systemctl start hello-world
 
-bash
-sudo systemctl stop hello-world
-Restart service
+4: #### Check status
+bash: sudo systemctl status hello-world
 
-bash
-sudo systemctl restart hello-world
-📋 Verify in Browser
+5: #### Stop service
+bash: sudo systemctl stop hello-world
+
+6: #### Restart service
+bash: sudo systemctl restart hello-world
+
+
+######################################################################
+📋 **Verify in Browser**
 Ensure your EC2 security group inbound rules allow traffic on port 8080.
 
 Open:
 
-Code
 http://<EC2-public-ip>:8080
 You should see your Hello World response.
 
-⚡ Best Practices
+######################################################################
+⚡ **Best Practices**
+
 Keep logs in /var/log/ for production apps.
-
 Use Restart=always so the app auto-restarts if it crashes.
-
 For HTTPS, add Nginx reverse proxy in front of your JAR.
