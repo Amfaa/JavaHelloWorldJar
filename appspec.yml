@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: server/target/server.jar
+  - source: target/hello-world-1.0-SNAPSHOT.jar
     destination: /root/App_3_Jave_samepleHelloWorld_jar/target/
 hooks:
   AfterInstall:
