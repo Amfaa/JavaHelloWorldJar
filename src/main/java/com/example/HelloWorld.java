@@ -13,7 +13,7 @@ public class HelloWorld {
         server.createContext("/", new HttpHandler() {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
-                String response = "Hello World from Java on EC2!";
+                String response = "Hello World from Java on EC2! using JAR file Depoyment";
                 exchange.sendResponseHeaders(200, response.length());
                 OutputStream os = exchange.getResponseBody();
                 os.write(response.getBytes());
