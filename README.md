@@ -1,8 +1,7 @@
 # JavaHelloWorldJar
 
-****🛠 Create a systemd Service File
+##################🛠 Create a systemd Service File#####################
 ###################Create service file ###################################
-****
 
 bash: # sudo nano /etc/systemd/system/<hello-world.service>
 **Add configuration  : Paste this content (adjust paths and JAR name as needed):**
@@ -25,9 +24,7 @@ ExecStart → path to your JAR file.
 
 ####################################################
 User → the Linux user running the app (often ec2-user).
-
 Logs will be written to /home/ec2-user/app/app.log.
-
 
 ###################################
 🔑 **Enable and Control the Service**:
@@ -51,7 +48,6 @@ bash: sudo systemctl stop hello-world
 6: #### Restart service
 bash: sudo systemctl restart hello-world
 
-
 ######################################################################
 📋 **Verify in Browser**
 Ensure your EC2 security group inbound rules allow traffic on port 8080.
@@ -67,3 +63,38 @@ You should see your Hello World response.
 Keep logs in /var/log/ for production apps.
 Use Restart=always so the app auto-restarts if it crashes.
 For HTTPS, add Nginx reverse proxy in front of your JAR.
+
+
+###################################################
+        🛠 Install Nginx on EC2
+###################################################
+sudo yum install -y nginx   # Amazon Linux 2
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+
+**🔑 Configure Reverse Proxy:**
+
+sudo nano /etc/nginx/conf.d/hello-world.conf
+
+###################################################################
+server {
+    listen 80;
+    server_name _;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+#######################################################################
+Note:
+listen 80 → Nginx listens on port 80 (HTTP).
+
+proxy_pass → forwards requests to your JAR running on port 8080.
+
+
+sudo nginx -t
+sudo systemctl restart nginx
