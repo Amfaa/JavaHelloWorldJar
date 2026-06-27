@@ -6,6 +6,9 @@
 bash: # sudo nano /etc/systemd/system/<hello-world.service>
 **Add configuration  : Paste this content (adjust paths and JAR name as needed):**
 
+<img width="1026" height="543" alt="image" src="https://github.com/user-attachments/assets/bfdb69d9-a65f-4556-98f0-7e3e61fd97a7" />
+
+
 [Unit]
 Description=Hello World Java App
 After=network.target
