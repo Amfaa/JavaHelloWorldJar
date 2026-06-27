@@ -82,6 +82,9 @@ sudo nano /etc/nginx/conf.d/hello-world.conf
 
 ###################################################################
 
+<img width="1079" height="565" alt="image" src="https://github.com/user-attachments/assets/7ea1b8fe-0b81-426d-92ed-81820ab4b98d" />
+
+
 
 server {
     listen 80;
