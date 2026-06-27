@@ -5,6 +5,6 @@ files:
     destination: /root/App_3_Jave_samepleHelloWorld_jar/target/
 hooks:
   AfterInstall:
-    - location: scripts/start_server.sh
+    - location: /root/App_3_Jave_samepleHelloWorld_jar/scripts/start_server.sh
       timeout: 300
       runas: root
